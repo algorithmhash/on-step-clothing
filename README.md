@@ -28,4 +28,11 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `yarn eject`
-# Clothing store created with create-react-app and added some little bitty extras under the hood. LOOK AT THAT UNIDIRECTIONAL DATA FLOW. 
+
+Clothing store created with create-react-app and added some little bitty extras under the hood. LOOK AT THAT UNIDIRECTIONAL DATA FLOW. 
+
+# UPDATE as of 12-11-2019:
+Added an alternative package.json called package-babelfix.json. I basically establish a resolutions property to that package-babelfix.json because if we use that one instead of our original we just need to run yarn install and it will fix any issues that arise due to versioning issues. 
+
+Normally if you clone this repo and your original environment globally is different from your local project dependencies, there will be a conflict when running your application. Best way to do this, if it is a stable release for other possible breaking dependencies, is to not uninstall the dependency, remove any lock files but to just add the property of resolutions to your package.json and run an npm install. As I have not had any of those issues, I have decided to just add an extra to show you what it looks like.
+

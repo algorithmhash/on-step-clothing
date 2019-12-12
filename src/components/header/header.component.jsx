@@ -21,19 +21,7 @@ const Header = ({ currentUser }) => (
                 width: 150,
                 paddingLeft: 10 }}
                 className="option">
-                    <img
-                    widht="35"
-                    height="35"
-                    alt="users google signin"
-                    style={
-                            {
-                                marginRight: 5,
-                                marginTop: 7,
-                                borderRadius: 35 
-                            }
-                        }
-                    src={currentUser.photoURL} />
-                    <p>{currentUser.displayName}</p></div>)
+                    <p>Welcome, {currentUser.displayName}</p></div>)
                     : ''}
             {currentUser ?
                 <div className="option" onClick={() => auth.signOut()}>  

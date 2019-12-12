@@ -36,3 +36,12 @@ Added an alternative package.json called package-babelfix.json. I basically esta
 
 Normally if you clone this repo and your original environment globally is different from your local project dependencies, there will be a conflict when running your application. Best way to do this, if it is a stable release for other possible breaking dependencies, is to not uninstall the dependency, remove any lock files but to just add the property of resolutions to your package.json and run an npm install. As I have not had any of those issues, I have decided to just add an extra to show you what it looks like.
 
+
+# Update as of 12-12-2019:
+
+No bugs to report. Added signing and sign up components. These will actually keep state at component as if we were to push state a level up it would cause the DOM to reload and we want to reduce multiple rerenders as much as possible because React was built to do just this. 
+
+-Signin- will be based off of accounts created using the sign up form. Via email & password or google.
+
+-Signup- 
+

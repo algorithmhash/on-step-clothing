@@ -24,12 +24,12 @@ const Header = ({ currentUser }) => (
                     <img
                     widht="35"
                     height="35"
-                    alt="users google signin image"
+                    alt="users google signin"
                     style={
                             {
                                 marginRight: 5,
                                 marginTop: 7,
-                                clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' 
+                                borderRadius: 35 
                             }
                         }
                     src={currentUser.photoURL} />

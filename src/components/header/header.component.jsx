@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import CartIcon from '../cart-icon/cart-icon.component';
 import {ReactComponent as Logo} from '../../assets/crown.svg';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { auth } from '../../firebase/firebase.utils';
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
     
     <div className="header">
         <Link className="logo-container" to="/">
@@ -15,13 +17,7 @@ const Header = ({ currentUser }) => (
             <Link className="option" to="/shop">SHOP</Link>
             <Link className="option" to="/contact">CONTACT</Link>
             {currentUser ? 
-            (<div 
-            style={{
-                display: 'flex',
-                flexDirection: 'flex-start',
-                width: 10 + 'vw',
-                paddingLeft: 10 }}
-                className="option">
+            (<div className="display-name option">
                     <p>Welcome, {currentUser.displayName}</p>
                 </div>)
                     : ''}
@@ -32,13 +28,19 @@ const Header = ({ currentUser }) => (
                 :
                 <Link className="option" to="/signin">SIGNIN</Link>
             }
+            <CartIcon />
         </div>
+        {
+            hidden ? null :
+           <CartDropdown />
+        }
     </div>
 );
 
 //state in this case is the top level root reducer
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
+    currentUser,
+    hidden
 });
 
 

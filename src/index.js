@@ -5,11 +5,15 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import './index.css';
 import App from './App';
-
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 ReactDOM.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </Provider>,
+    <RecoilRoot>
+        <App />
+    </RecoilRoot>,
 document.getElementById('root'));

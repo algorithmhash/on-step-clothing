@@ -1,28 +1,32 @@
 import React from 'react';
 import CollectionPreview from '../../components/collection-preview/collection-preview.component';
 import SHOP_DATA from './shop.data.js';
+import { useRecoilValue } from 'recoil';
+import { shopItemListState } from '../../recoil/index.atom';
+function ShopPage() {
 
-class ShopPage extends React.Component{
-    constructor(props){
-        super(props);
-        
-        this.state = {
-            collections: SHOP_DATA
-        }
-    }
+    const [arrayValue, setArrayValue] = useState('');
+    const setTodoList = useSetRecoilState(shopItemListState);
 
-    render(){
-        const {collections} = this.state;
-        return(
-            <div className="shop-page">
-                {
-                    collections.map(({id, ...otherCollectionProps}) => (
-                        <CollectionPreview key={id} {...otherCollectionProps} />
-                    ))
-                }
-            </div>
-        );
-    }
+    const addItem = () => {
+        setTodoList((oldArrayValues) => [
+            ...oldArrayValues,
+            {
+                id: id,
+                arrayValue: SHOP_DATA
+            },
+        ]);
+        setArrayValue('');
+    };
+
+    return (
+        <div class="shop-page">
+            {
+                arrayValue.map(({ id, ...otherCollectionProps }) => (
+                    <CollectionPreview key={id} {...otherCollectionProps} />
+                ))
+            }
+        </div>
+    );
 }
-
 export default ShopPage;
